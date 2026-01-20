@@ -33,7 +33,7 @@ class View:
         self._page.controls.append(row1)
 
         #row2
-        self.ddArtist = ft.Dropdown(label="Artista", width = 250, disabled=True)
+        self.ddArtist = ft.Dropdown(label="Artista", width = 250, disabled=True, on_change=self._controller.on_change_artista)
         self.btnArtistsConnected = ft.ElevatedButton(text="Artisti collegati", width = 150, disabled=True, on_click=self._controller.handle_connected_artists )
         row2 = ft.Row([self.ddArtist, self.btnArtistsConnected],
                       alignment=ft.MainAxisAlignment.CENTER)
@@ -42,7 +42,7 @@ class View:
         #row3
         self.txtMaxArtists = ft.TextField( label="Numero massimo artisti", width=300, disabled=True)
         self.txtMinDuration = ft.TextField( label="Durata minima (minuti)", width=250, disabled=True)
-        self.btnSearchArtists = ft.ElevatedButton(text="Cerca cammino da artista", disabled=True)
+        self.btnSearchArtists = ft.ElevatedButton(text="Cerca cammino da artista", disabled=True, on_click=self._controller.genera_cammino )
         row3 = ft.Row([self.txtMinDuration, self.txtMaxArtists, self.btnSearchArtists],
                       alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row3)
